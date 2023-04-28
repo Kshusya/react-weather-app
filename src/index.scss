@@ -1,0 +1,51 @@
+@import "~normalize.css/normalize.css";
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-height: 100vh;
+  max-width: 1440px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  &_day {
+    background-color: rgb(54,116,207);
+    background: linear-gradient(32deg, rgba(54,116,207,1) 0%, rgba(162,223,251,1) 100%);
+    color: #fff;
+    // text-shadow: 1px 1px 10px #102f79;
+  }
+  &_night {
+    background: rgb(2,19,75);
+    background: linear-gradient(35deg, rgba(2,19,75,1) 0%, rgba(61,88,177,1) 100%);
+    color: #fff;
+  }
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.weather {
+  &__element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.141);
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+  }
+}
