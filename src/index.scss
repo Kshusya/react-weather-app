@@ -1,12 +1,38 @@
 @import "~normalize.css/normalize.css";
 
+::selection {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 0;
+}
+
+
+.wrapper {
+  &_day {
+    background-color: rgb(54, 116, 207);
+    background: linear-gradient(32deg, rgba(54, 116, 207, 1) 0%, rgba(162, 223, 251, 1) 100%);
+    color: #fff;
+  }
+
+  &_night {
+    background: rgb(2, 19, 75);
+    background: linear-gradient(35deg, rgba(2, 19, 75, 1) 0%, rgba(61, 88, 177, 1) 100%);
+    color: #fff;
+  }
 }
 
 .container {
@@ -14,17 +40,8 @@ p, h1, h2, h3, h4, h5, h6 {
   max-width: 1440px;
   padding-top: 20px;
   padding-bottom: 20px;
-  &_day {
-    background-color: rgb(54,116,207);
-    background: linear-gradient(32deg, rgba(54,116,207,1) 0%, rgba(162,223,251,1) 100%);
-    color: #fff;
-    // text-shadow: 1px 1px 10px #102f79;
-  }
-  &_night {
-    background: rgb(2,19,75);
-    background: linear-gradient(35deg, rgba(2,19,75,1) 0%, rgba(61,88,177,1) 100%);
-    color: #fff;
-  }
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .flex-center {
@@ -38,14 +55,106 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .weather {
-  &__element {
+  &-info {
+    &__temperature {
+      margin-bottom: 16px;
+    }
+
+    &__apparent-temperature {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__block {
+    max-width: 350px;
+    margin: 32px auto;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    // gap: 16px;
+  }
+
+  &-element {
+    display: flex;
+    // flex-basis: 50%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.141);
-    width: 200px;
-    height: 200px;
+    // padding: 16px 32px;
+    padding: 12px;
+    margin: 16px;
     border-radius: 10px;
+
+    &__padding {
+      flex-basis: 50%;
+      // margin: 15px 35px;
+    }
+
+    &__title {
+      // color: #c9c9c9;
+      // color: #b4b5be; // too dark for day
+      color: #e8e8e8;
+    }
   }
+}
+
+.city-info {
+  &__title {
+    margin-top: 16px;
+  }
+}
+
+.future-forecast {
+  display: flex;
+  align-items: center;
+  overflow-y: scroll;
+  gap: 44px;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  &.day {
+    background-color: #0f61a885;
+  }
+
+  &.night {
+    background-color: #3d539e85;
+  }
+}
+
+.MuiAutocomplete-noOptions {
+  display: none;
+}
+
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-color: rgb(255 255 255 / 23%) !important;
+}
+
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root {
+  color: #fff !important;
 }

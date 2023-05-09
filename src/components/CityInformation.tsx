@@ -13,7 +13,7 @@ export default function CityInformation(props: CityInformationProps) {
 
     return (
         <div className='city-info text-center'>
-            <h2>{props.cityInfo.city}, {props.cityInfo.countryName}</h2>
+            <h2 className="city-info__title">{props.cityInfo.city}, {props.cityInfo.countryName}</h2>
         </div>
     )
 }

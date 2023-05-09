@@ -1,5 +1,12 @@
+import FutureHoursForecast from "./FutureHoursForecast"
 import HumidityElement from "./HumidityElement"
+import PrecipitationElement from "./PrecipitationElement"
+import SunriseElement from "./SunriseElement"
+import SunsetElement from "./SunsetElement"
 import TemperatureComponent from "./TemperatureComponent"
+import UvIndexElement from "./UvIndexElement"
+import WeathercodeElement from "./WeathercodeElement"
+import WindspeedElement from "./WindspeedElement"
 
 export interface ForecastResponse {
     latitude: number,
@@ -10,24 +17,25 @@ export interface ForecastResponse {
     timezone_abbreviation: string,
     elevation: number,
     hourly: {
-      time: string[],
-      temperature_2m: number[],
-      apparent_temperature: number[],
-      weathercode: number[],
-      windspeed_10m: number[],
-      relativehumidity_2m: number[],
-      uv_index: number[],
+        time: string[],
+        temperature_2m: number[],
+        apparent_temperature: number[],
+        weathercode: number[],
+        windspeed_10m: number[],
+        relativehumidity_2m: number[],
+        uv_index: number[],
+        precipitation_probability: number[],
     },
     daily: {
-      time: string[],
-      temperature_2m_max: number[],
-      temperature_2m_min: number[],
-      sunrise: string[],
-      sunset: string[],
+        time: string[],
+        temperature_2m_max: number[],
+        temperature_2m_min: number[],
+        sunrise: string[],
+        sunset: string[],
     },
 }
 
-interface WeatherInformationProps {
+export interface WeatherInformationProps {
     weatherInfo: ForecastResponse,
     currentHours: number,
 }
@@ -39,6 +47,7 @@ export interface CurrentWeather {
     windSpeed: number,
     humidity: number,
     uv: number,
+    precipitationProbability: number,
 }
 
 export interface DailyWeather {
@@ -57,6 +66,7 @@ export default function WeatherInformation(props: WeatherInformationProps) {
         windSpeed: props.weatherInfo.hourly.windspeed_10m[props.currentHours],
         humidity: props.weatherInfo.hourly.relativehumidity_2m[props.currentHours],
         uv: props.weatherInfo.hourly.uv_index[props.currentHours],
+        precipitationProbability: props.weatherInfo.hourly.precipitation_probability[props.currentHours],
     }
 
     const dailyWeather: DailyWeather = {
@@ -68,10 +78,19 @@ export default function WeatherInformation(props: WeatherInformationProps) {
 
     return (
         <div className='weather-info text-center'>
+            <WeathercodeElement currentWeather={currentWeather} />
             <TemperatureComponent
                 currentWeather={currentWeather}
                 dailyWeather={dailyWeather} />
-            <HumidityElement currentWeather={currentWeather} />
+            <FutureHoursForecast weatherInfo={props.weatherInfo} />
+            <div className="weather__block">
+                <HumidityElement currentWeather={currentWeather} />
+                <WindspeedElement currentWeather={currentWeather} />
+                <UvIndexElement currentWeather={currentWeather} />
+                <PrecipitationElement currentWeather={currentWeather} />
+                <SunriseElement dailyWeather={dailyWeather} />
+                <SunsetElement dailyWeather={dailyWeather} />
+            </div>
         </div>
     )
 }
