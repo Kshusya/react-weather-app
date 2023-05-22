@@ -83,7 +83,7 @@ export default function WeatherInformation(props: WeatherInformationProps) {
                 currentWeather={currentWeather}
                 dailyWeather={dailyWeather} />
             <FutureHoursForecast weatherInfo={props.weatherInfo} />
-            <div className="weather__block">
+            <div className="weather-info__extra">
                 <HumidityElement currentWeather={currentWeather} />
                 <WindspeedElement currentWeather={currentWeather} />
                 <UvIndexElement currentWeather={currentWeather} />

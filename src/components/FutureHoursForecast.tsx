@@ -19,7 +19,7 @@ export default function HourlyForecast(props: { weatherInfo: ForecastResponse })
         });
 
     return (
-        <div>
+        <div className="weather-info__future-block">
             <div className={`future-forecast ${isDayTime(currentHours) ? 'day' : 'night'}`}>
                 {futureForecast}
             </div>

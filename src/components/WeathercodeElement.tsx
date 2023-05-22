@@ -1,5 +1,4 @@
 import isDayTime from "../utils"
-import WeatherElement from "./WeatherElement"
 import { CurrentWeather } from "./WeatherInformation"
 
 export function getImageByWeathercode(hours: number, weathercode: number) {

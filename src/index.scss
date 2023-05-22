@@ -56,6 +56,26 @@ h6 {
 
 .weather {
   &-info {
+    &__future-block {
+      margin-top: 24px;
+      max-width: 40%;
+      margin-left: auto;
+      margin-right: auto;
+
+      @media screen and (max-width: 768px) {
+        max-width: 80%;
+      }
+    }
+
+    &__extra {
+      max-width: 350px;
+      margin: 32px auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
     &__temperature {
       margin-bottom: 16px;
     }
@@ -65,31 +85,18 @@ h6 {
     }
   }
 
-  &__block {
-    max-width: 350px;
-    margin: 32px auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    // gap: 16px;
-  }
-
   &-element {
-    display: flex;
-    // flex-basis: 50%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.141);
-    // padding: 16px 32px;
-    padding: 12px;
-    margin: 16px;
-    border-radius: 10px;
+    flex-basis: 50%;
 
-    &__padding {
-      flex-basis: 50%;
-      // margin: 15px 35px;
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255, 255, 255, 0.141);
+      padding: 12px;
+      margin: 16px;
+      border-radius: 10px;
     }
 
     &__title {
@@ -113,10 +120,6 @@ h6 {
   gap: 44px;
   padding: 15px;
   border-radius: 10px;
-  max-width: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 24px;
 
   &__column {
     display: flex;

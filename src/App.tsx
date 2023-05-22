@@ -67,7 +67,7 @@ function App() {
 
   return (
     <div className={`wrapper ${isDayTime(currentHours) ? 'wrapper_day' : 'wrapper_night'}`}>
-      <div className='container'>
+      <div className='container content'>
         {/* <FutureHoursForecast weatherInfo={weatherInfo} /> */}
         <div className='flex-center'>
           <CitySearchForm onCoordsChange={setCoords} />
